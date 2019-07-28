@@ -1,0 +1,150 @@
+/*Currently only supports small phone resolution or larger size. No intermediate size media queries have been set up */
+
+body {
+  background: #f0ecee;
+  font-family: "Fira Sans", sans-serif;
+}
+
+/*both buttons below but they are not the same*/
+
+p {
+  color: #88898b;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff4850;
+}
+
+/*buttons seperated due to appearance */
+
+button {
+  background-color: #ff4850;
+  border: none;
+  color: #f0ecee;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px; /*should be 15px per instructions, but does not visually match example*/
+  font-weight: 400px;
+}
+
+button:hover {
+  background-color: #ccc;
+  color: #ff4850;
+}
+
+#find {
+  background-color: #ff4850;
+  border: none;
+  color: #f0ecee;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px; /*should be 15px per instructions, but does not visually match example*/
+  font-weight: 400px;
+  width: 15%;
+}
+
+#find:hover {
+  background-color: #ccc;
+  color: #ff4850;
+}
+
+em {
+  font-style: normal;
+  color: #ff4850;
+  font-weight: 600;
+}
+
+.wrapper {
+  background: url(../images/bulldog.jpg) no-repeat center fixed;
+  background-size: cover;
+}
+
+.content {
+  grid-area: content;
+  position: relative;
+  top: 50%;
+}
+
+.header {
+  grid-area: header;
+  font-weight: 600;
+  height: 40px;
+  line-height: 40px; /* Same as height  done to align <li> and <button>*/
+}
+
+.think {
+  font-weight: 600;
+}
+
+.nav {
+  grid-area: nav;
+  height: 40px;
+  line-height: 40px; /* Same as height done to align <li> and <button> */
+}
+
+nav ul {
+  overflow: hidden;
+}
+
+nav ul li {
+  list-style: none;
+  float: left;
+  text-align: center;
+  width: calc(100% / 6);
+  color: #88898b;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: 5vh 60vh 30vh;
+  grid-template-areas:
+    "header nav"
+    "content ."
+    ". .";
+  color: #000;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    background: #f0ecee;
+    grid-template-columns: 97vw;
+    grid-template-rows: 50px 120px 50px;
+    grid-template-areas:
+      "header"
+      "nav"
+      "content";
+  }
+  .content {
+    top: 0%;
+    margin-right: 6vw; /*doubled to line up left and right sides on phone resolution */
+  }
+  .nav {
+    line-height: inherit;
+    height: inherit;
+    margin-right: 6vw; /*see above comment */
+  }
+  nav ul li {
+    float: none;
+    text-align: left;
+    width: 100%;
+  }
+  nav ul {
+    margin: 10px 0 0 0;
+    padding: 0;
+  }
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  #find {
+    width: 100%;
+  }
+}
